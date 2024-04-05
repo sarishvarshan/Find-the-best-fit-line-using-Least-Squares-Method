@@ -24,64 +24,38 @@ Developed by: v.sanjay
 RegisterNumber:  212223230188
 */
 ```
+```
 
+import numpy as np
+import matplotlib.pyplot as plt
+X=np.array(eval(input()))
+Y=np.array(eval(input()))
+X_mean=np.mean(X)
+print(X_mean)
+Y_mean=np.mean(Y)
+print(Y_mean)
+num=0
+denum=0
+for i in range(len(X)):
+  num+=(X[i]-X_mean)*(Y[i]-Y_mean)
+  denum+=(X[i]-X_mean)**2
+m=num/denum
+print(m)
+b=Y_mean - m*X_mean
+print(b)
+Y_pred=m*X+b
+print(Y_pred)
+plt.scatter(X,Y,color='blue')
+plt.plot(X,Y_pred,color='yellow') 
+plt.show()
+```
 ## Output:
+![Screenshot 2024-04-05 083904](https://github.com/sanjayy2431/Find-the-best-fit-line-using-Least-Squares-Method/assets/152167665/1df60ca6-bede-46ed-b3c9-5d7a9451e07e)
+
+
 ![ml1](https://github.com/sanjayy2431/Find-the-best-fit-line-using-Least-Squares-Method/assets/149365143/e4a5321e-2318-4d13-8660-d76e3c38abf6)
 
-import numpy as np 
 
-import matplotlib.pyplot as plt 
-
-# Preprocessing input data 
-
-X = np.array(eval(input()))
-
-Y = np.array(eval(input()))
-
-# Mean 
-
-X_mean =np.mean(X)
-
-Y_mean=np.mean(Y)
-
-num=0  #for slope 
-
-denom=0 #for slope
-
-
-#to find sum of (xi-x') & (yi-y') & (xi-x')^2
-
-for i in range(len(X)):
-
-    num+=(X[i] -X_mean)*(Y[i]-Y_mean)
-    
-    denom+= (X[i]-X_mean)**2
-    
-
-#calculate slope    
-
-m=num/denom
-
-
-#calculate intercept
-
-b=Y_mean-m*X_mean
-
-print(m,b)
-
-#line equation
-
-y_predicted=m*X+b
-
-print(y_predicted)
-
-#to plot graph
-
-plt.scatter(X,Y)
-
-plt.plot(X,y_predicted,color= 'red')
-
-plt.show()
 
 
 
